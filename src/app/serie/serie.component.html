@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Channel</th>
+      <th scope="col">Seasons</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of series">
+      <td>
+        <dd>{{s.id}}</dd>
+      </td>
+      <td>
+        <dd><a href={{s.webpage}} target="_blank">{{s.name}}</a></dd>
+      </td>
+      <td>
+        <dd>{{s.channel}}</dd>
+      </td>
+      <td>
+        <dd>{{s.seasons}}</dd>
+      </td>
+    </tr>
+    <p>Seasons average: {{promedio}}</p>
+  </tbody>
+</table>
