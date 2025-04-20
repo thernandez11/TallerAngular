@@ -31,6 +31,12 @@ export class SerieComponent implements OnInit {
     this.promedio = suma / this.series.length;
   }
 
+  selectedSerie: Serie | null = null;
+
+  showSeriesDetail(serie: Serie) {
+    this.selectedSerie = serie;
+  }
+
   ngOnInit() {
     this.getSeries();
   }

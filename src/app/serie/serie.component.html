@@ -1,27 +1,39 @@
-<table class="table">
-  <thead>
-  <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Channel</th>
-      <th scope="col">Seasons</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let s of series">
-      <td>
-        <dd>{{s.id}}</dd>
-      </td>
-      <td>
-        <dd><a href={{s.webpage}} target="_blank">{{s.name}}</a></dd>
-      </td>
-      <td>
-        <dd>{{s.channel}}</dd>
-      </td>
-      <td>
-        <dd>{{s.seasons}}</dd>
-      </td>
-    </tr>
-    <p>Seasons average: {{promedio}}</p>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-4">
+    <table class="table">
+      <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Channel</th>
+          <th scope="col">Seasons</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of series" (click)="showSeriesDetail(s)">
+          <td>
+            <dd>{{s.id}}</dd>
+          </td>
+          <td>
+            <dd><a href={{s.webpage}} target="_blank">{{s.name}}</a></dd>
+          </td>
+          <td>
+            <dd>{{s.channel}}</dd>
+          </td>
+          <td>
+            <dd>{{s.seasons}}</dd>
+          </td>
+        </tr>
+        <p>Seasons average: {{promedio}}</p>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6" *ngIf="selectedSerie" class="card" style="width: 18rem;">
+    <img src="selectedSerie.poster" class="card-img-top" [alt]="selectedSerie.name">
+    <div class="card-body">
+      <h5 class="card-title">{{selectedSerie.name}}</h5>
+      <p class="card-text">{{selectedSerie.description}}</p>
+      <a href="selectedSerie.webpage" target="_blank">{{selectedSerie.webpage}}</a>
+    </div>
+  </div>
+</div>
